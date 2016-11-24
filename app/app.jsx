@@ -16,6 +16,11 @@ var hashHistory = require('react-router').hashHistory;
 // called "destructuring"
 var {Route, Router, IndexRoute, hashHistory} = require('react-router');
 
+// Load foundation-sites
+// style! and css! are the loaders we installed for webpack
+require('style!css!foundation-sites/dist/foundation.min.css')
+$(document).foundation();
+
 ReactDOM.render(
 	<Router history={hashHistory}>
 		<Route path="/" component = {Main} >
