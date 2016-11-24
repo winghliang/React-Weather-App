@@ -16,7 +16,7 @@ var About = (props) => {
   return (
     <div>
         <h3>About Us</h3>
-        <p> This is a lesson about React!</p>
+        <p> Welcome to the about page!</p>
     </div>
   )
 }
