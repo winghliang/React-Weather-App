@@ -15,7 +15,7 @@ var React = require('react');
 var About = (props) => {
   return (
     <div>
-        <h1 className="text-center">About</h1>
+        <h1 className="text-center page-title">About</h1>
         <p>This is a weather app built using React, Node.js, Express.js, Webpack, Babel, and Foundation.</p>
         <p>The weather is obtained via an API provided by <a href="http://openweathermap.org">openWeatherMap.org</a>.  With this app, you can type in a city, and the current weather in that city will be returned.</p>
         <p>The github repo for this app is at this <a href="https://github.com/winghliang/React-Weather-App">github link</a>.</p>
