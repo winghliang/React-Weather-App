@@ -18,7 +18,9 @@ var Weather = React.createClass({
 
     this.setState({
       isLoading: true,
-      errorMessage: undefined
+      errorMessage: undefined,
+      location: undefined,
+      temp: undefined
     });
 
     openWeatherMap.getTemp(location).then(function(temp){
@@ -33,6 +35,26 @@ var Weather = React.createClass({
         errorMessage: e.message
       });
     });
+  },
+
+  componentDidMount: function(){
+    var location = this.props.location.query.location;
+    if (location && location.length > 0) {
+      this.handleSearch(location);
+      window.location.hash = "#/";
+    }
+  },
+
+  // This funciton is called whenever the component's props gets updated.
+  // If a search is entered into the Nav's search, the URL is updated with the location.
+  // BUT if the "Weather" component is already rendered, the weather component would not be aware of that update,
+  // so we need to run the componentWillReceiveProps function to tell the component to listen for updated props.
+  componentWillReceiveProps: function(newProps){
+    var location = newProps.location.query.location;
+    if (location && location.length > 0) {
+      this.handleSearch(location);
+      window.location.hash = "#/";
+    };  
   },
 
   render: function (){
