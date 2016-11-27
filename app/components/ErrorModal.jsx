@@ -29,9 +29,13 @@ var ErrorModal = React.createClass({
         </p>
       </div>
     );
+    // the code ABOVE used to be in the render method, but was moved here to fix issue where, after entering a non-existent city,
+    // a search for a valid city would not work.
 
+    //the below was added to address issue above
     var $modal = $(ReactDOMServer.renderToString(modalMarkup));
     $(ReactDOM.findDOMNode(this)).html($modal);
+    //the above was added to address issue above
 
     var modal = new Foundation.Reveal($('#error-modal'));
     modal.open();
